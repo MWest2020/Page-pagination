@@ -19,8 +19,7 @@ const searchBarNode = document.querySelector('.header');
 let studentItem;
     //Node for the HTML to show student items or no result.
 
-   //variable to keep track of the total amount of pages needed.
-let totalPage = Math.round(data.length / 9);
+
 
 
 
@@ -40,6 +39,10 @@ const page = 1;
 let searchString = "";
 //array to store search results in
 let filteredList = [];
+
+   //variable to keep track of the total amount of pages needed.
+   let totalPage = Math.ceil(dataJS.length / 9);
+
 
 
 /***
@@ -92,10 +95,10 @@ function addPagination(page, totalPage, data) {
     //Reset HTML every time a button is clicked, otherwise we get 5 buttons everytime we change pages.
     addPage.innerHTML = "";
         //Starting from 1, since a page 0 doesn't make sense
-    for (let i = 1; i <= totalPage; i++) {
+    for (let i = 0; i < totalPage; i++) {
             //create the LI elements and buttons with page numbers 
         let LI = document.createElement('li');
-        LI.innerHTML = `<button>${i}</button>`;
+        LI.innerHTML = `<button>${i + 1}</button>`;
 
             //Get button element to add the Event Listener 
         let button = LI.firstElementChild;
