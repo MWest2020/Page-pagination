@@ -105,13 +105,14 @@ function addPagination(page, totalPage, data) {
 
             //Event Listener for the clicking the button's behaviour.
         button.addEventListener('click', () => {
+            
             //Use the inner HTML of the button to pass which button is being clicked to the functions
             showPage(Number(button.textContent), data);
             addPagination(Number(button.textContent), totalPage, data);
             })
         
             //Set the "active" class to the first button.  Not happy with this as it doesn't cover loading the page on a different page. Needs work
-        if (i === page) {
+        if (i + 1  === page) {
             button.classList.add('active');
         }
         
@@ -149,8 +150,8 @@ function studentSearch() {
             //this variable stores the correct amount of student items to display and calculates the amount of buttons needed
             altPageButtons = Math.ceil(filteredList.length / 9);
             //
-            showPage(1, dataJS);
-            addPagination(1, altPageButtons, dataJS);
+            showPage(1, filteredList);
+            addPagination(1, altPageButtons, filteredList);
             
             } else {
                 studentList.innerHTML = `No results found. Please Try again`;
