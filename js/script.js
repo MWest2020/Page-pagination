@@ -10,7 +10,7 @@ FSJS Project 2 - Data Pagination and Filtering
 Variables to store NodeList of DOM elements
 */
     //node for dynamically inserting the selection of student profiles
-let studentList = document.querySelector('ul.student-list');
+    let studentList = document.querySelector('ul.student-list');
     // node for dynamically inserting the desired page of student profiles.
 const addPage = document.querySelector('ul.link-list');
    // node for dynamically inserting the search bar.
@@ -153,11 +153,13 @@ function studentSearch() {
             showPage(1, filteredList);
             addPagination(1, altPageButtons, filteredList);
             
-            } else {
+            } else if (filteredList.length === 0)  {
                 studentList.innerHTML = `No results found. Please Try again`;
                 addPage.innerHTML = "";
             }
         }
+    } else {
+        location.reload();
     }
 }
   
